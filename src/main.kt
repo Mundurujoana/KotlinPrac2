@@ -1,19 +1,14 @@
 fun main() {
-
+//In earlier codelabs, you learned about basic data types in Kotlin such as Int, Double, Boolean, and String. They allow you to store a certain type of value within a variable. But what if you want to store more than one value? That is where having a List data type is useful.
+//
+//A list is a collection of items with a specific order. There are two types of lists in Kotlin:
+//
+//Read-only list: List cannot be modified after you create it.
+//Mutable list: MutableList can be modified after you create it, meaning you can add, remove, or update its elements.
+//INTRODUCTION TO LISTS
 //    CREATE A LISTS
-    val numbers = mutableListOf<Int>(1,2,3,4,5,6)
+    val numbers: List<Int> = listOf(1,2,3,4,5,6)
     println("List:" +numbers)
-
-    //ADDING ELEMENTS
-    var include = numbers.add(15)
-    println("The new number:"+ include)
-    var addEl = numbers.addAll(7, setOf(10,18))
-    println(addEl)
-
-    //REMOVING ELEMENTS
-    var removEL = numbers.removeAt(3)
-    println("The removed num:"+removEL)
-    println(numbers.filter { x-> x%2==0 })
 
 //RETRIEVE THE SIZE OF A LIST.
     var totalSize = numbers.size
@@ -49,6 +44,73 @@ fun main() {
     println(notEl)
 
 // Lists are read-only
-    var color = listOf<String>("green", "blue", "red")
+    val colors = listOf("green", "orange", "blue")
+  var resveEl =colors.reversed()
+    println(resveEl)
+    println("The reversed list:"+colors)
+    var sortEl =colors.sorted()
+    println("The sorted list:"+sortEl)
+
+    val oddNumbers = listOf(5, 3, 7, 1)
+    println("List: $oddNumbers")
+    println("Sorted list: ${oddNumbers.sorted()}")
+
+    //INTRODUCTION TO MUTABLE LISTS
+    //Mutable lists are lists that can be modified after creation.
+// You can add, remove, or change items.
+    val entrees = mutableListOf<String>()
+    println("The list: $entrees")
+
+   //ADDING ELEMENTS
+    var adEL = entrees.add("noodles")
+    println("The new added element: $adEL")
+    println(entrees)
+    var addMoree = listOf<String>("macroon", "rice", "wheat", "sphageti")
+    println("The new list: ${entrees.addAll(addMoree)} ")
+    println(entrees)
+
+    //REMOVE ELEMENTS FROM THE LIST
+    var remEl = entrees.remove("sphageti")
+    println(remEl)
+    println(entrees)
+
+//Remove an item that doesn't exist in the list
+    //The remove() method returns false, because the element does not exist and
+    // therefore could not be removed
+    println(entrees.remove("beans"))
+    println(entrees)
+
+//Remove an item using removeAt() with an index
+// You can also specify the index of the element to remove.
+// Use removeAt() to remove the item at index 0.
+println("Remvove the third element:"+ " " +entrees.removeAt(2))
+    println(entrees)
+
+    // Clear out the list
+    var clearELS = entrees.clear()
+    println(entrees)
+
+    // Check if the list is empty
+    println("is Empty?"+entrees.isEmpty())
+    println(entrees)
+
+
+  //LOOP THROUGH A LIST
+  //While loops, A while loop doesn't need to involve a list
+
+    var guestperFam = listOf(1,2,3,4)
+    var totalGuest = 0
+    var index = 0
+
+    while(index< guestperFam.size) {
+        totalGuest += guestperFam[index]
+        index++
+    }
+    println("The Totol guest count:"+ totalGuest)
+
+    //For loops
+    val names = listOf("Jessica", "Henry", "Alicia", "Jose")
+    for (name in names)
+         println("$name- the char is ${name.length}")
 
 }
